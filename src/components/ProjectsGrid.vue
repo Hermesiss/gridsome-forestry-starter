@@ -7,7 +7,7 @@
                 :alt="item.node.title"
                 class="thumbnail"
             />
-            <h3 class="project-title">{{ item.node.title }}</h3>
+            <h3 class="project-title">{{ item.node.title }} <small>({{ item.node.date }})</small></h3>
             <div class="categories">
                 <span class="category" v-for="(item, index) in item.node.categories" :key="index">{{ item }}</span>
             </div>
@@ -41,7 +41,8 @@ export default {
   text-decoration: none;
 }
 .thumbnail {
-  height: 560px;
+  height: 400px;
+  width: 400px;
   object-fit: cover;
   transition: all 0.15s ease;
   box-shadow: 0 0 40px -20px rgba(0,0,0,0.25);
@@ -57,6 +58,11 @@ export default {
 }
 .category {
   margin-right: 0.8rem;
+  /* background-color: #00000033; */
+  /* padding: 5px; */
+  /* border-width: 0px 1px;
+  border-style: solid;
+  border-color: #ffffff11;   */
 }
 .category:last-of-type {
   margin: 0;
@@ -70,9 +76,9 @@ export default {
   .project {
     grid-column: auto / span 1;
   }
-  .project:nth-child(3n+1) {
+  /* .project:nth-child(3n+1) {
     grid-column: auto / span 2;
-  }
+  } */
 }
 
 </style>

@@ -1,10 +1,10 @@
 <template>
-  <Layout>
+  <Layout>    
     <div class="container">
       <Hero />
       <ProjectsGrid :projects="$page.projects.edges" />
     </div>
-    <LatestJournals :journals="$page.journals.edges" />
+    <!-- <LatestJournals :journals="$page.journals.edges" /> -->
   </Layout>
 </template>
 
@@ -14,8 +14,9 @@ query Posts {
     edges {
       node {
         id
-        date (format: "YYYY")
+        year
         title
+        date (format: "YYYY")        
         categories
         thumbnail (quality: 90)
         path

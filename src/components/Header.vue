@@ -1,18 +1,22 @@
 <template>
     <header class="header" :class="{sticky: $route.path === '/' || $route.path.includes('/projects/')}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="container">
             <div class="left">
                 <g-link :to="{ name: 'home' }" class="home-link">
-                    <img 
-                        src="../../static/logo.svg"
+                   <img 
+                        src="../../static/logo.png"
                         :alt="settings.site_name" 
                         class="logo"
-                    />
+                    />                     
+                       <b v-html="settings.site_name" class="logo"/>
                 </g-link>
             </div>
+            
             <nav class="nav right">
-                <g-link class="nav__link" to="/journal">Journal</g-link>
-                <g-link class="nav__link" to="/contact">Say Hi!</g-link>
+                <!-- <g-link class="nav__link" to="/journal">Journal</g-link> -->
+                <!-- <g-link class="nav__link" to="/contact">Say Hi!</g-link> -->
+                <g-link class="nav__link" :to="settings.github_link">GitHub <i class="fa fa-github" style="font-size:16px;color:white"></i></g-link>
             </nav>
         </div>
     </header>
@@ -22,7 +26,7 @@
 export default {
   data() {
     return {
-        logo: require("../../static/logo.svg"),
+        logo: require("../../static/logo.png"),
         settings: require("../../data/theme.json")
     }
   }
@@ -48,10 +52,13 @@ export default {
     height: 100%;
 }
 .home-link {
-    text-decoration: none;
+    text-decoration: none; 
+       
 }
 .logo {
-    height: 1.5rem;
+    height: 2rem;
+    vertical-align: middle;
+    margin-right: 1rem;
 }
 .site-name {
     font-size: 0.9rem;

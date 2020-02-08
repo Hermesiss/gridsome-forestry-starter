@@ -37,7 +37,7 @@
 
 <page-query>
 query ProjectPost ($path: String!) {
-  post: projectPost (path: $path) {
+  post: projectPost (path: $path) {    
     title
     date (format: "YYYY")
     content

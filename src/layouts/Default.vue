@@ -39,7 +39,7 @@ body {
 }
 
 body.dark {
-  --color-base: rgb(0, 0, 0);
+  --color-base: rgb(22, 22, 22);
   --color-base-1: rgb(43, 43, 43);
   --color-contrast: rgb(255, 255, 255);
   --color-contrast-1: rgb(243, 243, 243);

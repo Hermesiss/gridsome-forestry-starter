@@ -25,6 +25,8 @@ fields:
 - type: tag_list
   name: categories
   label: Categories
+- type: int
+  name: year
 - type: color
   name: project_bg_color
   config:

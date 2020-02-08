@@ -1,8 +1,9 @@
 {
-  "footer": "Copyright &copy; 2019",
-  "dark_mode": false,
-  "site_name": "Nichlas W. Andersen",
+  "footer": "Copyright &copy; 2020",
+  "dark_mode": true,
+  "site_name": "Trismegistus development",
   "site_description": "Creative technologist",
-  "hero_title": "Simplicity. Aesthetics. Value.",
-  "hero_subtitle": "Hi there, I'm an independent Digital Designer &amp; Art Director focused on digital design for brands that like to have fun."
+  "hero_title": "Αλχημεία. Αστρολογία. θεουργία.",
+  "hero_subtitle": "Therefore am I called Thrice Greatest Hermes, having all three parts of the wisdom of the Whole Universe.",
+  "github_link" : "https://github.com/TrismegistusDevelopment"
 }
