@@ -11,6 +11,11 @@ fields:
   label: Title
   config:
     required: true
+- type: text
+  name: subtitle
+  label: Subtitle
+  config:
+    required: false
 - type: datetime
   name: date
   label: Date
@@ -25,8 +30,6 @@ fields:
 - type: tag_list
   name: categories
   label: Categories
-- type: int
-  name: year
 - type: color
   name: project_bg_color
   config:

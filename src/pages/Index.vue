@@ -13,12 +13,12 @@ query Posts {
 	projects: allProjectPost {
     edges {
       node {
-        id
-        year
+        id        
         title
+        subtitle
         date (format: "YYYY")        
         categories
-        thumbnail (quality: 90)
+        thumbnail (quality: 100)
         path
       }
     }

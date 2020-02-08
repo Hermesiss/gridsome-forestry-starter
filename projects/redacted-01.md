@@ -1,7 +1,7 @@
 ---
 date: 2017-01-10
-year: 2017
-title: Vr ████ explorer
+title: ███████████ Vr
+subtitle: Vr ████ explorer
 thumbnail: "/uploads/redacted-01.jpg"
 categories:
 - vr

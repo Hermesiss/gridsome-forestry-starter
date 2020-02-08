@@ -3,11 +3,15 @@
     <div class="project">
 
       <div class="container">
-
-        <div class="project-header">
+        <div class="back-link">
+         <g-link :to="{ name: 'home' }" >
+           Back
+         </g-link>
+        </div>
+        <div class="project-header">          
           <h1 class="project-title" v-html="$page.post.title" />
+          <h2 class="project-subtitle" v-html="$page.post.subtitle" />
           <div class="project-info">
-
             <div class="categories-container">
               <div class="categories">
                 <span class="label">Categories</span>
@@ -39,6 +43,7 @@
 query ProjectPost ($path: String!) {
   post: projectPost (path: $path) {    
     title
+    subtitle
     date (format: "YYYY")
     content
     categories
@@ -62,12 +67,21 @@ export default {
 </script>
 
 <style scoped>
+.back-link{
+  padding: 10vh 0 0 0;
+}
+
 .project-header {
-  padding: 20vh 0 4rem 0;
+  padding: 1vh 0 4rem 0;
 }
 .project-title {
   font-size: 4rem;
-  margin: 0 0 4rem 0;
+  margin: 0;
+  padding: 0;
+}
+.project-subtitle {
+  font-size: 2rem;
+  margin: 1rem 0 4rem 0;
   padding: 0;
 }
 .project-info {

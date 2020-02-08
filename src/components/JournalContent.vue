@@ -27,4 +27,8 @@ h3 {
 h4, h5, h6 {
     font-size: 1.15rem;
 }
+/* img{
+    max-height: 10px;
+} */
+
 </style>
