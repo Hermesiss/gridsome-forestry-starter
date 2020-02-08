@@ -57,9 +57,10 @@ export default {
        
 }
 .logo {
-    height: 2rem;
+    height: 2vmax;
     vertical-align: middle;
     margin-right: 1rem;
+    font-size: 2vmin;
 }
 .site-name {
     font-size: 0.9rem;
