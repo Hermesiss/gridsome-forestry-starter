@@ -2,7 +2,7 @@
 date: 2017-01-10
 title: ███████████ Vr
 subtitle: Vr ████ explorer
-thumbnail: "/uploads/redacted-01.jpg"
+thumbnail: "/uploads/redacted-01-thumb.jpg"
 categories:
 - vr
 - ████ ███████
@@ -14,4 +14,6 @@ project_fg_color: "#fff"
 ---
 [DATA EXPUNGED]
 
-![img](/uploads/redacted-01.jpg)
+![img](/uploads/redacted-01-01.jpg)
+![img](/uploads/redacted-01-02.jpg)
+![img](/uploads/redacted-01-03.jpg)
