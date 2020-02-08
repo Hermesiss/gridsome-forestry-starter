@@ -18,10 +18,10 @@ export default {
 <style>
 .hero {
     text-align: center;
-    width: 480px;
+    width: 60vmax;
     max-width: 100%;
     margin: 0 auto;
-    padding: 4rem 0 8rem 0;
+    padding: 3vmax 0 6vmax 0;
 }
 
 .hero-title {

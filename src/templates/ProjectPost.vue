@@ -68,20 +68,20 @@ export default {
 
 <style scoped>
 .back-link{
-  padding: 10vh 0 0 0;
+  padding: 7rem 0 0 0;
 }
 
 .project-header {
-  padding: 1vh 0 4rem 0;
+  padding: 1vh 0 3vmax 0;
 }
-.project-title {
-  font-size: 4rem;
+.project-title { 
+  font-size: 4vmax;  
   margin: 0;
   padding: 0;
 }
 .project-subtitle {
-  font-size: 2rem;
-  margin: 1rem 0 4rem 0;
+  font-size: 2vmax;  
+  margin: 1vmax 0 3vmax 0;
   padding: 0;
 }
 .project-info {
