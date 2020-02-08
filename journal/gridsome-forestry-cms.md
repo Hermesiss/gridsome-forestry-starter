@@ -21,4 +21,4 @@ When you save content in **Forestry**, it's commited back to your Git repository
 
 Enjoy the best development and user experience! 🚀
 
-![](/uploads/ian-dooley-281897-unsplash.jpg)
+
