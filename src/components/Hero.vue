@@ -1,21 +1,38 @@
 <template>
-    <div class="hero">
-        <h1 class="hero-title" v-html="settings.hero_title" />
-        <h2 class="hero-subtitle" v-html="settings.hero_subtitle" />
-    </div>
+  <div class="hero">
+    <h1
+      class="hero-title"
+      v-on:click="title_clicked = !title_clicked"
+      v-html="title_clicked ? settings.hero_title_translation : settings.hero_title"
+    />
+
+    <h2
+      v-on:click="subtitle_clicked = !subtitle_clicked"
+      class="hero-subtitle"
+      v-html="subtitle_clicked ? settings.hero_subtitle_translation : settings.hero_subtitle"
+    />
+
+    <div class="text-center my-3"></div>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
+      title_clicked: false,
+      subtitle_clicked: false,
       settings: require("../../data/theme.json")
-    }
+    };
   }
-}
+};
 </script>
 
 <style>
+.translation {
+  background-color: transparent;
+}
+
 .hero {
     text-align: center;
     width: 60vmax;

@@ -16,8 +16,22 @@ fields:
     schema:
       format: html
 - type: textarea
+  name: hero_title_translation
+  label: Hero title translation
+  config:
+    wysiwyg: true
+    schema:
+      format: html
+- type: textarea
   name: hero_subtitle
   label: Hero subtitle
+  config:
+    wysiwyg: true
+    schema:
+      format: html
+- type: textarea
+  name: hero_subtitle_translation
+  label: Hero subtitle translation
   config:
     wysiwyg: true
     schema:
