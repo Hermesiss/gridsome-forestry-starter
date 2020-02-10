@@ -8,8 +8,8 @@ categories:
 - ████ ███████
 - visualization
 - █████
-project_bg_color: "#111"
-project_fg_color: "#fff"
+project_bg_color: "#fff"
+project_fg_color: "black"
 
 ---
 [DATA EXPUNGED]

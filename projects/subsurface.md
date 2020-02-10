@@ -10,7 +10,7 @@ categories:
 - android
 - visualization
 - historical
-project_bg_color: "#111"
+project_bg_color: "#000"
 project_fg_color: "#fff"
 
 ---

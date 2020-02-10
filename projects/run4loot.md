@@ -8,8 +8,8 @@ categories:
 - ar
 - android
 - multiplayer
-project_bg_color: ""
-project_fg_color: ""
+project_bg_color: "#70d675"
+project_fg_color: "#fff"
 
 ---
 Unity mobile app for [Run for Sun festival](https://vk.com/pohod_za_solncem) mini-game.

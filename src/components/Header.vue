@@ -16,7 +16,7 @@
             <nav class="nav right">
                 <!-- <g-link class="nav__link" to="/journal">Journal</g-link> -->
                 <!-- <g-link class="nav__link" to="/contact">Say Hi!</g-link> -->
-                <g-link class="nav__link" :to="settings.github_link">GitHub <i class="fa fa-github" style="font-size:16px;color:white"></i></g-link>
+                <g-link class="nav__link" :to="settings.github_link">GitHub <font-awesome :icon="['fab', 'github']"/></g-link>
             </nav>
         </div>
     </header>
@@ -38,7 +38,7 @@ export default {
     position: relative;
     height: 6rem;
     z-index: 10;
-    background-color: var(--color-base);
+    background-color: inherit;
 }
 .header.sticky {
     position: fixed;

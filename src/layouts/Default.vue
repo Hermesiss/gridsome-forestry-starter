@@ -51,6 +51,8 @@ h1 {
 
 .layout {
   padding: 0;
+  background-color: inherit; 
+  /* ^^ so our header can inherit .body color changing */
 }
 
 .layout.sticky-header {
