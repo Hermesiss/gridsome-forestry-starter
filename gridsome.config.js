@@ -32,6 +32,12 @@ module.exports = {
           externalLinksRel: ["nofollow", "noopener", "noreferrer"]
         }
       }
+    },
+    {
+      use: 'gridsome-plugin-yandex-metrika',
+      options: {
+        id: 55415419
+      }
     }
   ],
   transformers: {
