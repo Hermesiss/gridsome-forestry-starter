@@ -2,6 +2,7 @@
     <footer class="footer">
         <div class="container">
             <span v-html="settings.footer" />
+            <p><a href="https://github.com/Hermesiss/portfolio" target="newtab">Source</a></p>
         </div>
     </footer>
 </template>

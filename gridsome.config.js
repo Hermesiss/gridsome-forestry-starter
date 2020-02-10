@@ -3,7 +3,8 @@
 
 module.exports = {
   siteName: "Trismegistus Development",
-  
+  siteUrl: 'https://hermesiss.github.io',  
+  pathPrefix: '/portfolio',
   host: "0.0.0.0",
   titleTemplate: "%s",
   siteDescription: "Esoteric development laboratory",
