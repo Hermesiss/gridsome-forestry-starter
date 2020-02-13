@@ -31,7 +31,7 @@ export default {
 <style>
 codersrank-widget {
   --head-bg-color: var(--color-base-1);
-  --bg-color: var(--color-base);
+  --bg-color: #ffffff04;
   --badge-bg-color: var(--color-base-1);
   --badge-text-color: var(--color-contrast);
 }

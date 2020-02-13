@@ -1,11 +1,20 @@
 <template>
   <Layout>
-    
-    <div class="container">      
+    <div class="container">
       <h1 class="stats-title">Coping with impostor syndrome</h1>
       <div class="stats">
-      <Doughnut class="stat" />
-      <CodersRank class="stat" username="hermesiss" />      
+        <div class="stat">
+          <CodeStats class="stat-inner" />
+        </div>
+        <div class="stat">
+          <CodersRank class="stat-inner" username="hermesiss" />
+        </div>
+        <div class="stat">
+          <embed
+            class="stat-inner"
+            src="https://wakatime.com/share/@Hermesis/1b4b4fd7-2b2d-41d8-bba4-26cc8132f213.svg"
+          />
+        </div>
       </div>
     </div>
   </Layout>
@@ -14,41 +23,53 @@
 <script>
 import Doughnut from "@/components/Doughnut.vue";
 import CodersRank from "@/components/CodersRank.vue";
+import CodeStats from "@/components/CodeStats.vue";
 
 export default {
   components: {
     Doughnut,
-    CodersRank
+    CodersRank,
+    CodeStats
   }
 };
 </script>
 
 <style scoped>
+.legend > text {
+  font-size: 2rem;
+}
 .stats-header {
   padding: 2rem 0 4rem 0;
 }
 .stats-title {
-  font-size: 4rem;
-  margin: 0 0 4rem 0;
+  font-size: 2rem;
+  margin: 2rem 0 2rem 0;
   padding: 0;
+  text-align: center;
 }
 .stats {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 4rem;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
   align-items: center;
 }
+.stat > * {
+  margin: 6px;
+}
+
 .stat {
   grid-column: auto / span 2;
-  text-align: center;}
+  text-align: center;
+  border: 1px solid #ffffff08;
+  background-color: #ffffff01;
+  margin: 1rem;
+  border-radius: 5px;
+}
 
 @media (min-width: 920px) {
   .stat {
     grid-column: auto / span 1;
   }
-  /* .project:nth-child(3n+1) {
-    grid-column: auto / span 2;
-  } */
 }
 textarea:focus {
   border-color: var(--color-contrast-1);
