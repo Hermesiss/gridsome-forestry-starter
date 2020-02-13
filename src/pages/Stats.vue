@@ -1,43 +1,60 @@
 <template>
   <Layout>
-    <div class="container">
-      <Doughnut />
-      
+    
+    <div class="container">      
+      <h1 class="stats-title">Coping with impostor syndrome</h1>
+      <div class="stats">
+      <Doughnut class="stat" />
+      <CodersRank class="stat" username="hermesiss" />
+      </div>
     </div>
   </Layout>
 </template>
 
 <script>
-import Doughnut from "./Doughnut.vue"
+import Doughnut from "@/components/Doughnut.vue";
+// <CodersRank username="hermesiss" />
+import CodersRank from "@/components/CodersRank.vue";
+
+//   components: {
+//     CodersRank
+//   }
 export default {
   components: {
-    Doughnut
+    Doughnut,
+    CodersRank
   }
-}
+};
 </script>
 
 <style scoped>
-.contact-header {
+.stats-header {
   padding: 2rem 0 4rem 0;
 }
-.contact-title {
+.stats-title {
   font-size: 4rem;
   margin: 0 0 4rem 0;
   padding: 0;
 }
-.sender-info {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 4rem;
+  align-content: center;
 }
-.sender-info > div {
-  flex: 1;
-  margin-right: 4rem;
+.stat {
+  grid-column: auto / span 2;
+  text-align: center;
 }
-.sender-info > div:last-of-type {
-  margin: 0;
+
+@media (min-width: 920px) {
+  .stat {
+    grid-column: auto / span 1;
+  }
+  /* .project:nth-child(3n+1) {
+    grid-column: auto / span 2;
+  } */
 }
-input:focus,
 textarea:focus {
   border-color: var(--color-contrast-1);
 }
