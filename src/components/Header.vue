@@ -9,13 +9,12 @@
                         :alt="settings.site_name" 
                         class="logo"
                     />                     
-                       <b v-html="settings.site_name" class="logo"/>
+                       <strong v-html="settings.site_name" class="logo"/>
                 </g-link>
             </div>
             
             <nav class="nav right">
-                <!-- <g-link class="nav__link" to="/journal">Journal</g-link> -->
-                <!-- <g-link class="nav__link" to="/contact">Say Hi!</g-link> -->
+                <g-link class="nav__link" to="/stats">Stats</g-link>                
                 <g-link class="nav__link" :to="settings.github_link">GitHub <font-awesome :icon="['fab', 'github']"/></g-link>
             </nav>
         </div>
