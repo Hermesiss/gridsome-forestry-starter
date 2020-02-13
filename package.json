@@ -15,9 +15,11 @@
     "@gridsome/remark-prismjs": "0.3.0",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.4.0",
+    "chart.js": "^2.9.3",
     "gh-pages": "^2.2.0",
     "gridsome": "^0.7.11",
     "gridsome-plugin-yandex-metrika": "^0.1.2",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-chartjs": "^3.5.0"
   }
 }
