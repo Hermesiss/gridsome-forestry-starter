@@ -15,6 +15,7 @@
     "@gridsome/remark-prismjs": "0.3.0",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.4.0",
+    "axios": "^0.19.2",
     "chart.js": "^2.9.3",
     "gh-pages": "^2.2.0",
     "gridsome": "^0.7.11",
