@@ -2,6 +2,7 @@
 
 <script>
 import { Pie } from "vue-chartjs";
+import { labels } from "chartjs-plugin-labels";
 import axios from "axios";
 export default {
   extends: Pie,
@@ -28,6 +29,17 @@ export default {
         display: true,
         text: "Codestats.net data",
         fontSize: 18
+      },
+      plugins: {
+        labels: {
+          fontColor: "#fff",
+          position: "outside",
+          textMargin: 4,
+          fontSize: 12,
+          render: function(args) {
+            if (args.index < 6) return args.label;
+          }
+        }
       }
     }
   }),
@@ -41,7 +53,6 @@ export default {
 
       for (const item in results.data.languages) {
         sortable.push([item, results.data.languages[item].xps]);
-        //console.log(item, results.data.languages[item].xps);
       }
 
       sortable.sort(function(a, b) {

@@ -5,7 +5,7 @@
       <h1 class="stats-title">Coping with impostor syndrome</h1>
       <div class="stats">
       <Doughnut class="stat" />
-      <CodersRank class="stat" username="hermesiss" />
+      <CodersRank class="stat" username="hermesiss" />      
       </div>
     </div>
   </Layout>
@@ -13,12 +13,8 @@
 
 <script>
 import Doughnut from "@/components/Doughnut.vue";
-// <CodersRank username="hermesiss" />
 import CodersRank from "@/components/CodersRank.vue";
 
-//   components: {
-//     CodersRank
-//   }
 export default {
   components: {
     Doughnut,
@@ -40,12 +36,11 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 4rem;
-  align-content: center;
+  align-items: center;
 }
 .stat {
   grid-column: auto / span 2;
-  text-align: center;
-}
+  text-align: center;}
 
 @media (min-width: 920px) {
   .stat {

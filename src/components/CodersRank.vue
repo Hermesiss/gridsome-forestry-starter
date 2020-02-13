@@ -20,7 +20,7 @@ export default {
     let widgetContainer = document.getElementById("codersrank");
     let widget = document.createElement("codersrank-widget");
     setAttr(widgetContainer, widget, "username");
-    //widget.setAttribute('username', widgetContainer.getAttribute('username'))
+
     widgetContainer.appendChild(widget);
   },
   props: {
