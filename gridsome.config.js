@@ -1,12 +1,18 @@
 // This is where project configuration and installed plugin options are located.
 // Learn more: https://gridsome.org/docs/config
 
+const settings = require("./data/theme.json");
+
 module.exports = {
   siteName: "Trismegistus Development",
-  siteUrl: 'https://hermesiss.github.io',  
+  siteUrl: settings.siteUrl,  
   //pathPrefix: '/portfolio',
   host: "0.0.0.0",
   titleTemplate: "%s",
+  htmlAttrs: {
+    lang: 'en',
+    amp: true,
+  },
   siteDescription: "Esoteric development laboratory",
   plugins: [
     {

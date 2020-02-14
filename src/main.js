@@ -17,4 +17,17 @@ export default function (Vue, { head }) {
   head.bodyAttrs = {
     class: settings.dark_mode ? "dark" : ""
   };
+
+  head.meta.push({
+    name: 'keywords',
+    content: 'Unity,XR,C#,JavaScript'
+  })
+
+  head.meta.push({
+    property: 'og:image',    
+    content: settings.siteUrl + "/portfolio/logo-og.jpg"
+  })
+
 }
+
+

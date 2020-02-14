@@ -81,22 +81,16 @@ export default {
         item.colors = `#6EC06E ${colorPercent}%, #F2B866 ${colorPercent}%, #F2B866 ${percent}%, #DDDDDD 0`;
         return item;
       };
-      this.level[0] =  JSON.parse(JSON.stringify(sortable[0]));
+      this.level[0] = JSON.parse(JSON.stringify(sortable[0]));
       console.log(this.level[0], sortable[0]);
-      this.level[0].id = "Total"
+      this.level[0].id = "Total";
       this.level[0].lang.xps = 0;
       this.level[0].lang.new_xps = 0;
       for (var item of sortable) {
-        
         this.level[0].lang.xps += item.lang.xps;
         this.level[0].lang.new_xps += item.lang.new_xps;
-        // var percent = getPercentage(item.lang.xps);
-        // var colorPercent = getPercentage(item.lang.xps - item.lang.new_xps);
-        // item.level = getLevel(item.lang.xps);
-        // item.percent = percent;
-        // item.colors = `#6EC06E ${colorPercent}%, #F2B866 ${colorPercent}%, #F2B866 ${percent}%, #DDDDDD 0`;
       }
-      this.level[0] = prepareItem(this.level[0]);
+      prepareItem(this.level[0]);
       console.log(this.level[0]);
 
       if (sortable.length > 10) sortable.length = 10;
@@ -104,7 +98,7 @@ export default {
       this.languages = sortable;
 
       for (const item of sortable) {
-        item = prepareItem(item);
+        prepareItem(item);
         // var percent = getPercentage(item.lang.xps);
         // var colorPercent = getPercentage(item.lang.xps - item.lang.new_xps);
         // item.level = getLevel(item.lang.xps);
