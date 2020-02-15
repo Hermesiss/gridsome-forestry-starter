@@ -2,6 +2,7 @@
   <div class="bar">
     <strong>{{language.id}}</strong>
     level {{language.level}}
+    <!-- <CodeStatsBadge :level="language.level"/> -->
     <br />
     ({{xpNotation(language.lang.xps)}} XP)
     {{ (language.lang.new_xps > 0) ? '(+' + xpNotation(language.lang.new_xps)+ ')' : '' }}
@@ -13,6 +14,7 @@
 </template>
 
 <script>
+import CodeStatsBadge from "@/components/CodeStatsBadge.vue"
 export default {
   props: {
     colors: String,
@@ -22,6 +24,9 @@ export default {
     xpNotation: function(xp) {
       return xp.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
     }
+  },
+  components: {
+    CodeStatsBadge
   }
 };
 </script>
