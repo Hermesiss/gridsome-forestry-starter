@@ -9,17 +9,18 @@
         :language="item"
       />
     </div>
-    <div class="progress-bars">
+    <div :class="type=='progress' ? 'progress-bars' : 'progress-circles'">
       <CodeStatsProgressBar
         v-for="item in languages"
         :key="item.id"
         :colors="item.colors"
         :language="item"
+        :type="type"
       />
     </div>
     <div class="codestats-link">
       Code levels from
-      <a href="https://codestats.net/">codestats.net</a>
+      <a :href="'https://codestats.net/users/' + this.username">codestats.net</a>
     </div>
   </div>
 </template>
@@ -38,7 +39,11 @@ export default {
     CodeStatsProgressBar
   },
   props: {
-    username: String
+    username: String,
+    type: {
+      content: String,
+      default: "progress"
+    }
   },
   async mounted() {
     try {
@@ -54,7 +59,7 @@ export default {
           lang: results.data.languages[item],
           colors: ""
         });
-        // console.log(results.data.languages[item]);
+        
       }
 
       sortable.sort(function(a, b) {
@@ -86,7 +91,7 @@ export default {
         return item;
       };
       this.level[0] = JSON.parse(JSON.stringify(sortable[0]));
-      console.log(this.level[0], sortable[0]);
+      
       this.level[0].id = "Total";
       this.level[0].lang.xps = 0;
       this.level[0].lang.new_xps = 0;
@@ -95,7 +100,7 @@ export default {
         this.level[0].lang.new_xps += item.lang.new_xps;
       }
       prepareItem(this.level[0]);
-      console.log(this.level[0]);
+      
 
       if (sortable.length > 10) sortable.length = 10;
 
@@ -126,6 +131,13 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 0.5rem;
+  align-items: center;  
+}
+.progress-circles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;  
+  grid-gap: 0;
+  align-items: center;  
 }
 CodeStatsProgressBar {
   /* grid-column: auto / span 1; */
