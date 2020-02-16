@@ -4,7 +4,7 @@
       <h1 class="stats-title">Coping with impostor syndrome</h1>
       <div class="stats">
         <div class="stat">
-          <CodeStats class="stat-inner" />
+          <CodeStats class="stat-inner" username="Hermesis"/>
         </div>
         <div class="stat">
           <CodersRank class="stat-inner" username="hermesiss" />

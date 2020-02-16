@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="progress-caption">
+      {{username}}
       <CodeStatsProgressBar
         v-for="item in level"
         :key="item.id"
@@ -36,10 +37,13 @@ export default {
   components: {
     CodeStatsProgressBar
   },
+  props: {
+    username: String
+  },
   async mounted() {
     try {
       const results = await axios.get(
-        "https://codestats.net/api/users/Hermesis"
+        "https://codestats.net/api/users/" + this.username
       );
 
       const sortable = [];

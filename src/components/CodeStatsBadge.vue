@@ -1,47 +1,31 @@
 <template>
-  <div class="badge">
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
+  <div class="badge" :style="'--min-size:' + minSize + 'px; --max-size:' + maxSize + 'px; --v-shift:' + grade + ';'">
+    <div class="cell top left"></div>
+    <div class="cell left"></div>
+    <div class="cell bottom left"></div>
 
-    <div class="cell" v-for="index in (level%5)" :key="index"></div>
-    <div class="cell" v-for="index in (level%5)" :key="index+level"></div>
-    <div class="cell" v-for="index in (level%5)" :key="index+level*2"></div>
+    <div v-for="index in (level*3)" :key="index" :class="'cell ' + classes[(index-1)%3]"></div>
 
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>   
+    <div class="cell top right"></div>
+    <div class="cell right"></div>
+    <div class="cell bottom right"></div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      classes: ["top", "middle", "bottom"]
+    };
+  },
   props: {
-    level: Number
+    level: Number,
+    minSize: Number,
+    maxSize: Number,
+    grade: Number
   },
-  mounted() {
-    if (this.level > 5) {
-      var cells = this.$el.querySelectorAll(".cell");
-      console.log(cells);
-      for (var cell of cells) {
-        //console.log(cell)
-        cell.classList.add("lvl2");
-      }
-    }
-    if (this.level > 10) {
-      var cells = this.$el.querySelectorAll(".cell");
-      console.log(cells);
-      for (var cell of cells) {
-        //console.log(cell)
-        cell.classList.add("lvl3");
-      }
-    }
-
-
-  },
-  lvl: require("../../static/frame.png"),
-  lvl2: require("../../static/frame2.png"),
-  lvl3: require("../../static/frame3.png")
+  lvl: require("../../static/frame.png")  
 };
 </script>
 <style>
@@ -50,73 +34,38 @@ export default {
   position: absolute;
   grid-template-rows: repeat(3, auto);
   grid-auto-flow: column;
-  margin: 2px;
+  margin: 0 2px;
 }
-
 .cell {
   background-image: url("../../static/frame.png");
   width: var(--max-size);
   height: var(--max-size);
   background-position-x: calc(0px - var(--min-size));
-  background-position-y: calc(0px - var(--min-size));
+  background-position-y: calc(0px - var(--min-size) - var(--v-shift)*(var(--min-size)*2 + var(--max-size)));
 }
-.lvl1 {
-  background-image: url("../../static/frame.png");
-}
-.lvl2 {
-  background-image: url("../../static/frame2.png");
-}
-.lvl3 {
-  background-image: url("../../static/frame3.png");
-}
-.cell:nth-child(3n-2) {
-  width: var(--max-size);
+.cell.top,
+.cell.bottom {
   height: var(--min-size);
-  background-position-x: calc(0px - var(--min-size));
-  background-position-y: 0;
 }
-.cell:nth-child(3n) {
-  width: var(--max-size);
-  height: var(--min-size);
-  background-position-x: calc(0px - var(--min-size));
-  background-position-y: calc(0px - var(--min-size) - var(--max-size));
-}
-.cell:nth-child(1) {
+.cell.left,
+.cell.right {
   width: var(--min-size);
-  background-position-x: 0;
-  background-position-y: 0;
 }
-.cell:nth-child(2) {
-  width: var(--min-size);
-
-  background-position-y: calc(0px - var(--min-size));
+.cell.top {
+  background-position-y: calc(0px - var(--v-shift)*(var(--min-size)*2 + var(--max-size)) );
+}
+.cell.bottom {
+  background-position-y: calc(0px - var(--min-size) - var(--max-size) - var(--v-shift)*(var(--min-size)*2 + var(--max-size)));
+}
+.cell.left {
   background-position-x: 0;
 }
-.cell:nth-child(3) {
-  width: var(--min-size);
-  background-position-y: calc(0px - var(--min-size) - var(--max-size));
-  background-position-x: 0;
-}
-.cell:nth-last-child(3) {
-  width: var(--min-size);
+.cell.right {
   background-position-x: calc(0px - var(--min-size) - var(--max-size));
-  background-position-y: 0;
-}
-.cell:nth-last-child(2) {
-  width: var(--min-size);
-  background-position-x: calc(0px - var(--min-size) - var(--max-size));
-  background-position-y: calc(0px - var(--min-size));
-}
-.cell:nth-last-child(1) {
-  width: var(--min-size);
-  /* background-position: calc(0 - var(--min-size) - var(--max-size))  calc(var(--min-size) + var(--max-size)) */
-  background-position-x: calc(0px - var(--min-size) - var(--max-size));
-  background-position-y: calc(0px - var(--min-size) - var(--max-size));
 }
 .cell {
-  --min-size: 4px;
-  --max-size: 8px;
-  --v-shift: 0;
-  --h-shift: 0;
+  --min-size: inherit;
+  --max-size: inherit;
+  --v-shift: inherit;
 }
 </style>
