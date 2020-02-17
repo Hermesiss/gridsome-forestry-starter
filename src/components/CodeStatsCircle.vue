@@ -6,7 +6,7 @@
         class="progress-ring__circle"
         :fill="gradeColors[grade]+'22'"
         :stroke="gradeColors[grade]+'30'"
-        stroke-width="3"
+        stroke-width="2"
         :r="radius-2"
         :cx="radius"
         :cy="radius"
@@ -17,7 +17,7 @@
       <circle
         class="progress-ring__circle"
         fill="transparent"
-        :stroke="gradeColors[grade]"
+        :stroke="gradeColors[grade] + (index == level? '' : '88')"
         stroke-width="4"
         :r="radius-2"
         :cx="radius"
@@ -38,7 +38,7 @@ export default {
       radius: 40,
       gap: 8,
       line: 47,
-      gradeColors: ["#3D26A8", "#4746EA", "#259AE9", "#0ABCBC", "#71CC63","#F7BA3D", "#F8FA13", "#FF0000"]
+      gradeColors: ["#8D87A8", "#4746EA", "#259AE9", "#0ABCBC", "#71CC63","#F7BA3D", "#F8FA13", "#FF0000"]
     };
   },
   methods: {

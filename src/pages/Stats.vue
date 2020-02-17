@@ -4,8 +4,8 @@
       <h1 class="stats-title">Coping with impostor syndrome</h1>
       <div class="stats">
         <div class="stat">
-          <CodeStats class="stat-inner" username="Hermesis" type="circle" />
-        </div>
+          <CodeStats class="stat-inner" username="Hermesis" type="circle" count="10" />
+        </div>      
 
         <div class="stat">
           <CodersRank class="stat-inner" username="hermesiss" />

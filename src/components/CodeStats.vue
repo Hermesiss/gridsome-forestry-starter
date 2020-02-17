@@ -11,7 +11,7 @@
     </div>
     <div :class="type=='progress' ? 'progress-bars' : 'progress-circles'">
       <CodeStatsProgressBar
-        v-for="item in languages"
+        v-for="item in languagesSliced"
         :key="item.id"
         :colors="item.colors"
         :language="item"
@@ -29,6 +29,12 @@
 import axios from "axios";
 import CodeStatsProgressBar from "@/components/CodeStatsProgressBar.vue";
 export default {
+  computed: {
+    languagesSliced() {
+      return this.count ? this.languages.slice(0, this.count) : this.languages;
+    }
+  },
+
   data() {
     return {
       languages: [],
@@ -43,6 +49,9 @@ export default {
     type: {
       content: String,
       default: "progress"
+    },
+    count: {
+      content: Number
     }
   },
   async mounted() {
@@ -59,7 +68,6 @@ export default {
           lang: results.data.languages[item],
           colors: ""
         });
-        
       }
 
       sortable.sort(function(a, b) {
@@ -91,7 +99,7 @@ export default {
         return item;
       };
       this.level[0] = JSON.parse(JSON.stringify(sortable[0]));
-      
+
       this.level[0].id = "Total";
       this.level[0].lang.xps = 0;
       this.level[0].lang.new_xps = 0;
@@ -100,9 +108,8 @@ export default {
         this.level[0].lang.new_xps += item.lang.new_xps;
       }
       prepareItem(this.level[0]);
-      
 
-      if (sortable.length > 10) sortable.length = 10;
+      //if (sortable.length > 16) sortable.length = 16;
 
       this.languages = sortable;
 
@@ -131,13 +138,19 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 0.5rem;
-  align-items: center;  
+  align-items: center;
 }
 .progress-circles {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;  
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 0;
-  align-items: center;  
+  align-items: center;
+}
+
+@media (max-width: 580px) {
+  .progress-circles {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 CodeStatsProgressBar {
   /* grid-column: auto / span 1; */

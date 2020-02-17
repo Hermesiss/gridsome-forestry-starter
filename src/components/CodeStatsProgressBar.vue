@@ -22,12 +22,12 @@
     </div>
     <div v-if="type=='circle'" class="circle">      
       <CodeStatsCircle
-        :level="language.level%5 == 0? 5:language.level%5"       
-        :grade="Math.floor(language.level%5 == 0? language.level/5-1 : language.level/5)"
+        :level="(language.level+1)%5 == 0? 5:(language.level+1)%5"       
+        :grade="Math.floor((language.level+1)%5 == 0? (language.level+1)/5-1 : (language.level+1)/5)"
         :percent="language.percent"
         :lang="language.id"
         :fullLevel="language.level"
-        v-if="language.level > 0 && language.id!='Total'"
+        v-if="language.lang.xps > 0 && language.id!='Total'"
       />
       
     </div>
