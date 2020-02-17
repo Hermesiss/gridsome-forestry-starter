@@ -95,6 +95,7 @@ export default {
         var colorPercent = getPercentage(item.lang.xps - item.lang.new_xps);
         item.level = getLevel(item.lang.xps);
         item.percent = percent;
+        item.colorPercent = colorPercent;
         item.colors = `#6EC06E ${colorPercent}%, #F2B866 ${colorPercent}%, #F2B866 ${percent}%, #DDDDDD 0`;
         return item;
       };

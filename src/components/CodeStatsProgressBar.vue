@@ -25,6 +25,7 @@
         :level="(language.level+1)%5 == 0? 5:(language.level+1)%5"       
         :grade="Math.floor((language.level+1)%5 == 0? (language.level+1)/5-1 : (language.level+1)/5)"
         :percent="language.percent"
+        :newPercent="language.colorPercent"
         :lang="language.id"
         :fullLevel="language.level"
         v-if="language.lang.xps > 0 && language.id!='Total'"

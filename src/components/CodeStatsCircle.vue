@@ -1,44 +1,70 @@
 <template>
-<div class="level-root">
-  <div class="circle-badge">
-    <svg class="progress-ring">
-      <circle
-        class="progress-ring__circle"
-        :fill="gradeColors[grade]+'22'"
-        :stroke="gradeColors[grade]+'30'"
-        stroke-width="2"
-        :r="radius-2"
-        :cx="radius"
-        :cy="radius"
-        :style="'stroke-dasharray: '+ (getLine() + ' ' + getGap() + ' ').repeat(5)+' 0 360;'"
-      />
-    </svg>
-    <svg class="progress-ring" v-for="index in level" :key="index">
-      <circle
-        class="progress-ring__circle"
-        fill="transparent"
-        :stroke="gradeColors[grade] + (index == level? '' : '88')"
-        stroke-width="4"
-        :r="radius-2"
-        :cx="radius"
-        :cy="radius"
-        :style="'stroke-dasharray: 0 '+((getLine()+getGap())*(index-1))+' ' + ((index < level) ? getLine() : getLine()*percent/100) +' 360;'"
-      />
-    </svg>
-    <div class="circle-lang">{{lang}}</div>
+  <div class="level-root">
+    <div class="circle-badge">
+      <svg class="progress-ring">
+        <circle
+          class="progress-ring__circle"
+          :fill="gradeColors[grade]+'22'"
+          :stroke="gradeColors[grade]+'30'"
+          stroke-width="2"
+          :r="radius-2"
+          :cx="radius"
+          :cy="radius"
+          :style="'stroke-dasharray: '+ (getLine() + ' ' + getGap() + ' ').repeat(5)+' 0 360;'"
+        />
+      </svg>
+      <svg class="progress-ring" v-for="index in level" :key="index">
+        <circle
+          class="progress-ring__circle"
+          fill="transparent"
+          :stroke="gradeColors[grade] + (index == level? '' : '88')"
+          stroke-width="4"
+          :r="radius-2"
+          :cx="radius"
+          :cy="radius"
+          :style="'stroke-dasharray: 0 '+((getLine()+getGap())*(index-1))+' ' + ((index < level) ? getLine() : getLine()*percent/100) +' 360;'"
+        />
+      </svg>
+      <svg class="progress-ring" v-if="newPercentOut < percent">
+        <circle
+          class="progress-ring__circle"
+          fill="transparent"
+          stroke="white"
+          stroke-width="4"
+          :r="radius-2"
+          :cx="radius"
+          :cy="radius"
+          :style="'stroke-dasharray: 0 '+((getLine()+getGap())*(level-1)+getLine()*(newPercentOut)/100) + ' ' + (getLine()*(percent - newPercentOut)/100) +' 360;'"
+        />
+      </svg>
+      <div class="circle-lang">{{lang}}</div>
+    </div>
+    <div class="circle-level" :style="'border-color: ' + gradeColors[grade]">Lvl {{fullLevel}}</div>
   </div>
-  <div class="circle-level" :style="'border-color: ' + gradeColors[grade]">Level {{fullLevel}}</div>
-</div>
 </template>
 
 <script>
 export default {
+  computed: {
+    newPercentOut() {
+      return this.newPercent > this.percent ? 0 : this.newPercent;
+    }
+  },
   data() {
     return {
       radius: 40,
       gap: 8,
       line: 47,
-      gradeColors: ["#8D87A8", "#4746EA", "#259AE9", "#0ABCBC", "#71CC63","#F7BA3D", "#F8FA13", "#FF0000"]
+      gradeColors: [
+        "#8D87A8",
+        "#4746EA",
+        "#259AE9",
+        "#0ABCBC",
+        "#71CC63",
+        "#F7BA3D",
+        "#F8FA13",
+        "#FF0000"
+      ]
     };
   },
   methods: {
@@ -53,27 +79,32 @@ export default {
     level: Number,
     grade: Number,
     percent: Number,
+    newPercent: Number,
     lang: String,
     fullLevel: Number
+  },
+  mounted() {
+    console.log(this.level, this.percent, this.newPercent);
   }
 };
 </script>
 <style>
-.level-root{
-  display: table-cell;  
+.level-root {
+  display: table-cell;
 }
-.circle-level{
-  text-align: center; 
-  position: relative;  
-  bottom: 20px;  
+.circle-level {
+  text-align: center;
+  position: relative;
+  bottom: 20px;
   margin: 0 18px;
   border: black solid 2px;
   border-radius: 4px;
+  font-size: 0.9rem;
 }
 .circle-lang {
   text-align: center;
   width: 60px;
-  margin: 0;  
+  margin: 0;
 }
 .circle-badge {
   height: 80px;
