@@ -3,13 +3,16 @@ import settings from "../data/theme.json";
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { config, library } from '@fortawesome/fontawesome-svg-core'
-import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faTwitter, faUnity } from '@fortawesome/free-brands-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import "@/assets/code-highlight.css"
 
 config.autoAddCss = false;
-library.add(faGithub, faTwitter);
+library.add(faGithub, faTwitter, faUnity, fas, far);
 
 export default function (Vue, { head }) {
   Vue.component('font-awesome', FontAwesomeIcon);

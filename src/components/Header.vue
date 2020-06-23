@@ -1,91 +1,98 @@
 <template>
-    <header class="header" :class="{sticky: $route.path === '/' || $route.path.includes('/projects/')}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <div class="container">
-            <div class="left">
-                <g-link :to="{ name: 'home' }" class="home-link">
-                   <img 
-                        src="../../static/logo.png"
-                        :alt="settings.site_name" 
-                        class="logo"
-                    />                     
-                       <strong v-html="settings.site_name" class="logo"/>
-                </g-link>
-            </div>
-            
-            <nav class="nav right">
-                <g-link class="nav__link" to="/stats">Stats</g-link>                
-                <g-link class="nav__link" :to="settings.github_link">GitHub <font-awesome :icon="['fab', 'github']"/></g-link>
-            </nav>
-        </div>
-    </header>
+  <header
+    class="header"
+    :class="{sticky: $route.path === '/' || $route.path.includes('/projects/')}"
+  >
+    <div class="container">
+      <div class="left">
+        <g-link :to="{ name: 'home' }" class="home-link">
+          <img src="../../static/logo.png" :alt="settings.site_name" class="logo" />
+          <strong v-html="settings.site_name" class="logo" />
+        </g-link>
+      </div>
+
+      <nav class="nav right">
+        <g-link class="nav__link" to="/projects/upm/">
+          <font-awesome :icon="['fab', 'unity']" />&nbsp;UPM
+        </g-link>
+        <g-link class="nav__link" to="/stats">
+          <font-awesome :icon="['far', 'chart-bar']" />&nbsp;Stats
+        </g-link>
+        <g-link class="nav__link" :to="settings.github_link">
+          <font-awesome :icon="['fab', 'github']" />&nbsp;GitHub
+          <sup>
+            <font-awesome icon="external-link-alt" size="xs" />
+          </sup>
+        </g-link>
+      </nav>
+    </div>
+  </header>
 </template>
 
 <script>
 export default {
   data() {
     return {
-        logo: require("../../static/logo.png"),
-        settings: require("../../data/theme.json")
-    }
+      logo: require("../../static/logo.png"),
+      settings: require("../../data/theme.json")
+    };
   }
-}
+};
 </script>
 
 <style scoped>
 .header {
-    position: relative;
-    height: 6rem;
-    z-index: 10;
-    background-color: inherit;
+  position: relative;
+  height: 6rem;
+  z-index: 10;
+  background-color: inherit;
 }
 .header.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 .header > .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
 }
 .home-link {
-    text-decoration: none; 
-       
+  text-decoration: none;
 }
 .logo {
-    height: 2vmax;
-    vertical-align: middle;
-    margin-right: 1rem;
-    font-size: 2vmin;
+  height: 2vmax;
+  vertical-align: middle;
+  margin-right: 1rem;
+  font-size: 2vmin;
 }
 .site-name {
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    text-transform: uppercase;   
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 .nav > * {
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-decoration: none;
-    margin-top: 4px;
-    margin-right: 3rem;
-    padding-bottom: 4px;
-    border-bottom: 1px solid;
-    border-color: transparent;
-    transition: border 0.15s;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 4px;
+  margin-right: 3rem;
+  padding-bottom: 4px;
+  border-bottom: 1px solid;
+  border-color: transparent;
+  transition: border 0.15s;
 }
 .nav > *:last-of-type {
-    margin: 0;
+  margin: 0;
 }
 .nav > *:hover {
-    border-color: inherit;
+  border-color: inherit;
 }
 .nav > .active {
-    border-color: inherit;
+  border-color: inherit;
 }
 </style>
