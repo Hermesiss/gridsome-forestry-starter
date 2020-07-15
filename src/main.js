@@ -23,14 +23,22 @@ export default function (Vue, { head }) {
 
   head.meta.push({
     name: 'keywords',
-    content: 'Unity,XR,C#,JavaScript'
+    content: 'Unity, XR, C#, JavaScript, VR, AR'
   })
 
   head.meta.push({
-    property: 'og:image',    
+    name: 'image',
+    property: "og:image",
     content: settings.siteUrl + "/portfolio/logo-og.jpg"
   })
 
+  head.meta.push({    
+    property: "og:type",
+    content: "website"
+  })
+
+  head.meta.push({
+    name: 'author',    
+    content: "Alexander Shimanov"
+  })
 }
-
-
